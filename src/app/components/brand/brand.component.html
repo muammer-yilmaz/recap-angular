@@ -1,0 +1,6 @@
+<ul class="list-group">
+    <li routerLink="/cars" class="list-group-item">Tüm Markalar</li>
+    <li (click)="setCurrentBrand(brand)" *ngFor="let brand of brandList"
+        routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrand(brand)">
+        {{brand.brandName}}</li>
+</ul>
