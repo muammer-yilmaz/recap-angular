@@ -12,7 +12,7 @@ export class ColorService {
   constructor(private httpClient: HttpClient) { }
 
   getColors() {
-    let url = environment.apiUrl + "color/getall";
+    let url = environment.apiUrl + "colors/getall";
     return this.httpClient.get<ListResponseModel<ColorModel>>(url);
   }
 }

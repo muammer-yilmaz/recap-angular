@@ -12,17 +12,17 @@ export class CarService {
   constructor(private httpClient: HttpClient) { }
 
   getCars() {
-    let url = environment.apiUrl + "car/getcarlist";
+    let url = environment.apiUrl + "cars/getcardetails";
     return this.httpClient.get<ListResponseModel<CarModel>>(url);
   }
 
   getCarsByBrandId(brandId: number) {
-    let url = environment.apiUrl + "car/getallbybrand?brandId=" + brandId;
+    let url = environment.apiUrl + "cars/getallbybrand?brandId=" + brandId;
     return this.httpClient.get<ListResponseModel<CarModel>>(url);
   }
 
   getCarsByColorId(colorId: number) {
-    let url = environment.apiUrl + "car/getallbybrand?colorId=" + colorId;
+    let url = environment.apiUrl + "cars/getallbybrand?colorId=" + colorId;
     return this.httpClient.get<ListResponseModel<CarModel>>(url);
   }
 }

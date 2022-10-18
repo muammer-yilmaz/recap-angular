@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { BrandModel } from '../models/brandModel';
+import { CarImageModel } from '../models/carImageModel';
 import { ListResponseModel } from '../models/listResponseModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
+export class ImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getBrands() {
-    let url = environment.apiUrl + "brands/getall"
-    return this.httpClient.get<ListResponseModel<BrandModel>>(url);
+  getCarImages(carId: number) {
+    let url = environment.apiUrl + "carimages/getcarimages?carId=" + carId;
+    return this.httpClient.get<ListResponseModel<CarImageModel>>(url);
   }
 }
