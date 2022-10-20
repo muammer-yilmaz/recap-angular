@@ -1,8 +1,8 @@
 export interface CarModel {
     carId: number;
     carName: string;
-    brandName: number;
-    colorName: number;
+    brandName: string;
+    colorName: string;
     //modelYear: number;
     dailyPrice: number;
     carImage: string;

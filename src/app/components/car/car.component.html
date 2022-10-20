@@ -1,6 +1,7 @@
 <div class="d-flex">
     <div class="row">
-        <div class="card" *ngFor="let car of carList" style="width: 18rem;">
+        <div class="card" routerLink="/car-detail/{{car.carId}}" (click)="onCarClick(car)"
+            *ngFor="let car of carList" style="width: 18rem;">
             <img height="150px" style="object-fit: contain;"
                 src="https://localhost:7072/uploads/images/{{car.carImage}}" class="card-img-top"
                 alt="...">

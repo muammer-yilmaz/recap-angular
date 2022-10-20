@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CarModel } from 'src/app/models/carModel';
 import { CarService } from 'src/app/services/car.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-car',
@@ -12,9 +14,8 @@ export class CarComponent implements OnInit {
 
   carList: CarModel[];
 
-
   constructor(private carService: CarService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute, private data: DataService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -59,5 +60,10 @@ export class CarComponent implements OnInit {
       }
     })
   }
+
+  onCarClick(car: CarModel) {
+    this.data.changeCar(car);
+  }
+
 }
 
