@@ -1,6 +1,17 @@
-<ul class="list-group">
+<!-- <ul class="list-group">
     <li routerLink="/cars" class="list-group-item">Tüm Markalar</li>
     <li (click)="setCurrentBrand(brand)" *ngFor="let brand of brandList"
         routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrand(brand)">
         {{brand.brandName}}</li>
-</ul>
+</ul> -->
+
+<div class="my-2">
+    <select class="form-select" (change)="navigateTo($event)">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" /> -->
+        <option value="" disabled selected>Select brand</option>
+        <option value="0">Tüm Markalar</option>
+        <option *ngFor="let brand of brandList" [value]="brand.brandId">
+            {{brand.brandName}}</option>
+    </select>
+    <!-- <div class="dropdown-item">dwad</div> -->
+</div>

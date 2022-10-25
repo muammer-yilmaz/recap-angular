@@ -4,6 +4,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap/carousel/carousel-
 import { Subscription } from 'rxjs/internal/Subscription';
 import { CarImageModel } from 'src/app/models/carImageModel';
 import { CarModel } from 'src/app/models/carModel';
+import { CarService } from 'src/app/services/car.service';
 import { DataService } from 'src/app/services/data.service';
 import { ImageService } from 'src/app/services/image.service';
 @Component({
@@ -11,24 +12,21 @@ import { ImageService } from 'src/app/services/image.service';
   templateUrl: './car-detail.component.html',
   styleUrls: ['./car-detail.component.css']
 })
-export class CarDetailComponent implements OnInit, OnDestroy {
+export class CarDetailComponent implements OnInit {
 
   imageList: CarImageModel[];
   carData: CarModel;
   subscription: Subscription;
   constructor(private imageService: ImageService, private activatedRoute: ActivatedRoute,
-    private data: DataService) { }
+    private carService: CarService) { }
 
   ngOnInit(): void {
-    this.subscription = this.data.carData.subscribe(car => this.carData = car)
     this.activatedRoute.params.subscribe((params) => {
       if (params["carId"]) {
-        this.getCarImages(params["carId"])
+        this.getCarImages(params["carId"]);
+        this.getCarDetails(params["carId"]);
       }
     })
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   getCarImages(carId: number) {
@@ -39,6 +37,17 @@ export class CarDetailComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         console.log('error', error)
+      }
+    })
+  }
+  getCarDetails(carId: number) {
+    this.carService.getCarById(carId).subscribe({
+      next: (response) => {
+        this.carData = response.data;
+        console.log('response', response)
+      },
+      error: (errorResponse) => {
+        console.error(errorResponse);
       }
     })
   }

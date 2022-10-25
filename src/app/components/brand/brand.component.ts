@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BrandModel } from 'src/app/models/brandModel';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -12,7 +13,7 @@ export class BrandComponent implements OnInit {
   brandList: BrandModel[];
   currentBrand: BrandModel;
 
-  constructor(private brandService: BrandService) { }
+  constructor(private brandService: BrandService, private router: Router) { }
 
   ngOnInit(): void {
     this.getBrands();
@@ -40,6 +41,16 @@ export class BrandComponent implements OnInit {
     } else {
       return "list-group-item"
     }
+  }
+
+  navigateTo(event: Event) {
+    const val = (event.target as HTMLSelectElement).value
+    if (val) {
+      val !== "0"
+        ? this.router.navigate(["/cars/brand/" + val])
+        : this.router.navigate(["/cars"])
+    }
+    return false;
   }
 
 }

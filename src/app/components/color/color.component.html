@@ -1,6 +1,14 @@
-<ul class="list-group">
+<!-- <ul class="list-group">
     <li routerLink="/cars" class="list-group-item">Tüm Renkler</li>
     <li (click)="setCurrentColor(color)" *ngFor="let color of colorList"
         routerLink="/cars/brand/{{color.colorId}}" [class]="getCurrentColor(color)">
         {{color.colorName}}</li>
-</ul>
+</ul> -->
+
+<div class="my-2">
+    <select class="form-select" (change)="navigateTo($event)">
+        <option disabled selected>Select color</option>
+        <option value="0">Tüm Renkler</option>
+        <option *ngFor="let color of colorList" [value]="color.colorId">{{color.colorName}}</option>
+    </select>
+</div>

@@ -15,7 +15,7 @@ export class CarComponent implements OnInit {
   carList: CarModel[];
 
   constructor(private carService: CarService,
-    private activatedRoute: ActivatedRoute, private data: DataService) { }
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -59,10 +59,6 @@ export class CarComponent implements OnInit {
         this.carList = response.data;
       }
     })
-  }
-
-  onCarClick(car: CarModel) {
-    this.data.changeCar(car);
   }
 
 }

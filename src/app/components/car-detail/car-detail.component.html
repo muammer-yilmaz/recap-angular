@@ -7,8 +7,15 @@
         </div>
     </ng-template>
 </ngb-carousel>
-
-<div>
-    <h3 class="text-center">{{carData.carName}}</h3>
-
+<div class="p-2">
+    <div *ngIf="carData">
+        <div>
+            <h3 class="text-center">{{carData.carName}}</h3>
+        </div>
+        <div>
+            <h5>Brand : {{carData.brandName}}</h5>
+            <h5>Color : {{carData.colorName}}</h5>
+            <h5>DailyPrice : {{carData.dailyPrice |currency}}</h5>
+        </div>
+    </div>
 </div>
