@@ -33,7 +33,12 @@ export class CarDetailComponent implements OnInit {
     this.imageService.getCarImages(carId).subscribe({
       next: (response) => {
         console.log('response :>> ', response);
-        this.imageList = response.data;
+        if (response.data.length === 0) {
+          let date = new Date();
+          this.imageList = [{ carId: 0, date: date, imageId: 0, imagePath: "no-image.png" }]
+        } else {
+          this.imageList = response.data;
+        }
       },
       error: (error) => {
         console.log('error', error)

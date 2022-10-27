@@ -3,7 +3,8 @@ export interface CarModel {
     carName: string;
     brandName: string;
     colorName: string;
-    //modelYear: number;
+    modelYear: number;
     dailyPrice: number;
     carImage: string;
+    isRentable: boolean
 }

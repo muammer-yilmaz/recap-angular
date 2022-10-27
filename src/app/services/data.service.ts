@@ -7,21 +7,21 @@ import { CarModel } from '../models/carModel';
 })
 export class DataService {
 
-  car: CarModel = {
-    carId: 1,
-    carName: "",
-    brandName: "",
-    carImage: "",
-    colorName: "",
-    dailyPrice: 1
-  };
+  // car: CarModel = {
+  //   carId: 1,
+  //   carName: "",
+  //   brandName: "",
+  //   carImage: "",
+  //   colorName: "",
+  //   dailyPrice: 1
+  // };
 
-  private carSource = new BehaviorSubject(this.car);
-  carData = this.carSource.asObservable();
+  // private carSource = new BehaviorSubject(this.car);
+  // carData = this.carSource.asObservable();
 
   constructor() { }
 
   changeCar(car: CarModel) {
-    this.carSource.next(car);
+    // this.carSource.next(car);
   }
 }

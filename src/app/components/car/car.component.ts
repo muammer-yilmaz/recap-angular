@@ -13,6 +13,7 @@ import { DataService } from 'src/app/services/data.service';
 export class CarComponent implements OnInit {
 
   carList: CarModel[];
+  filterText: "";
 
   constructor(private carService: CarService,
     private activatedRoute: ActivatedRoute) { }
