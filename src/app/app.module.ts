@@ -13,6 +13,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { CarComponent } from './components/car/car.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     CarDetailComponent,
     CarComponent,
     FilterPipe,
+    PaymentComponent,
 
   ],
   imports: [
