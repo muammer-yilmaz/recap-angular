@@ -22,9 +22,32 @@
                     <h5>Color : {{carData.colorName}}</h5>
                     <h5>DailyPrice : {{carData.dailyPrice |currency}}</h5>
                 </div>
-                <h6 *ngIf="carData.isRentable === true" class="text-success">Kiralanabilir</h6>
-                <h6 *ngIf="carData.isRentable === false" class="text-danger">Kiralanamaz</h6>
-                <button class="btn btn-primary">Kirala</button>
+                <div class="">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <label class="form-label me-2" for="from-date">Başlangıç : </label>
+                        <input class="form-control" style="width: 8rem;"
+                            (ngModelChange)="setStartDate($event)" [ngModel]="startDate" type="date"
+                            name="" id="from-date">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <label class="form-label me-2" for="to-date">Bitiş : </label>
+                        <input class="form-control" style="width: 8rem;"
+                            (ngModelChange)="setEndDate($event)" [ngModel]="endDate" type="date"
+                            name="" id="to-date">
+                    </div>
+                </div>
+                <div class="py-3 d-flex justify-content-between">
+                    <div *ngIf="rentPrice">
+                        <h6 class="text-success">Tutar : {{rentPrice |currency}}</h6>
+                    </div>
+                    <div>
+                        <h6 *ngIf="carData.isRentable === true" class="text-success">Kiralanabilir
+                        </h6>
+                        <h6 *ngIf="carData.isRentable === false" class="text-danger">Kiralanamaz
+                        </h6>
+                        <button (click)="goToPayment()" class="btn btn-primary">Kirala</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

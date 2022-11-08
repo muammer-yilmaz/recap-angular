@@ -14,6 +14,7 @@ import { CarComponent } from './components/car/car.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -34,7 +35,10 @@ import { PaymentComponent } from './components/payment/payment.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      positionClass: "toast-top-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

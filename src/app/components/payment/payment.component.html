@@ -1,1 +1,42 @@
-<p>payment works!</p>
+<div class="">
+    <div>
+        <div class="card">
+            <div class="card-body d-flex justify-content-center">
+                <div class="">
+                    <div class="col-">
+                        <label class="form-label" for="card-number">Card Number</label>
+                        <input class="form-control" [(ngModel)]="creditCard.cardNumber"
+                            id="card-number" type="text" />
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label class="form-label" for="card-month">Month</label>
+                            <select class="form-select" (change)="setMonth($event)" name="Month"
+                                id="card-month">
+                                <option disabled selected value="">Lütfen seçiniz</option>
+                                <option *ngFor="let i of fillArray(1,13)" [value]="i">{{i}}</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label class="form-label" for="card-year">Year</label>
+                            <select class="form-select" (change)="setYear($event)" name="Year"
+                                id="card-year">
+                                <option disabled selected value="">Lütfen seçiniz</option>
+                                <option *ngFor="let i of fillArray(0,10)" [value]="i">{{i}}</option>
+                            </select>
+                        </div>
+                        <div class="col-3 ">
+                            <label class="form-label" for="card-cvv">Cvv</label>
+                            <input class="form-control" [(ngModel)]="creditCard.cvv" type="text"
+                                id="card-cvv" />
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button (click)="pay()" class="btn btn-primary btn-sm rounded"
+                            style="min-width: 5rem;">Öde</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
