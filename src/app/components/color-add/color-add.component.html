@@ -1,0 +1,12 @@
+<div>
+    <h5 class="text-center text-primary">Renk Ekle</h5>
+    <form [formGroup]="colorAddForm">
+        <div class="d-grid col-6 offset-3">
+            <label class="form-label" for="color-name">Renk ismi</label>
+            <input class="form-control" type="text" formControlName="colorName" id="color-name" />
+            <div class="d-flex justify-content-end my-3">
+                <button (click)="addColor()" class="btn btn-primary">Ekle</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ToastrModule } from 'ngx-toastr';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 @NgModule({
@@ -27,6 +30,9 @@ import { ToastrModule } from 'ngx-toastr';
     CarComponent,
     FilterPipe,
     PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CarAddComponent,
 
   ],
   imports: [
@@ -36,10 +42,12 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right"
     })
   ],
+  // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   providers: [],
   bootstrap: [AppComponent]
 })

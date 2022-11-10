@@ -26,6 +26,7 @@ export class ColorAddComponent implements OnInit {
   }
 
   addColor() {
+    console.log('object :>> ', this.colorAddForm.value);
     if (this.colorAddForm.valid) {
       let colorModel = Object.assign({}, this.colorAddForm.value);
       this.colorService.addColor(colorModel).subscribe({
